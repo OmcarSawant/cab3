@@ -1,0 +1,193 @@
+@use "variables" as *;
+
+.booking-request {
+    padding: 120px 0 80px;
+    min-height: 90vh;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__card {
+        background: var(--card);
+        border: 1px solid var(--border-color, #e5e7eb);
+        border-radius: 20px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        padding: 40px;
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+
+        @media (max-width: 600px) {
+            padding: 24px;
+        }
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-size: 1rem;
+        color: var(--text);
+        opacity: 0.7;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        input, textarea {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color, #e5e7eb);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $accent;
+                box-shadow: 0 0 0 3px rgba($accent, 0.1);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    }
+
+    &__submit {
+        background: $accent;
+        color: white;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+
+        &:hover {
+            background: #e8630d;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba($accent, 0.25);
+        }
+    }
+
+    // Success Screen
+    &__success {
+        text-align: center;
+        padding: 20px 0;
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text);
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+
+            &--primary {
+                background: $accent;
+                color: white;
+
+                &:hover {
+                    background: #e8630d;
+                    transform: translateY(-1px);
+                }
+            }
+
+            &--secondary {
+                background: transparent;
+                color: var(--text);
+                border: 1px solid var(--border-color, #e5e7eb);
+
+                &:hover {
+                    background: rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(0.9);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

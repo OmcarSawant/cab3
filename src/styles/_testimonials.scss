@@ -1,0 +1,324 @@
+@use "variables" as *;
+
+:root {
+  --card-width: 380px;
+  --card-gap: 24px;
+
+  @media (max-width: 768px) {
+    --card-width: 290px;
+    --card-gap: 16px;
+  }
+}
+
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  background: var(--section-warm, rgba(249, 115, 22, 0.04));
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  // Background ambient circles for a premium, high-end feel
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($accent, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba($accent, 0.05) 0%, transparent 75%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  &__tag {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $accent;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-family: 'Stack Sans Notch', sans-serif;
+  }
+
+  &__title {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    color: var(--text);
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      line-height: 2.25rem;
+    }
+  }
+
+  &__line {
+    width: 60px;
+    height: 4px;
+    background: $accent;
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+
+  &__subtitle {
+    font-size: 1.1rem;
+    color: var(--muted-text, #555555);
+    line-height: 1.6;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Carousel */
+  &__carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2.5rem 0;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--card-gap);
+    will-change: transform;
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    width: var(--card-width);
+    flex-shrink: 0;
+    background: var(--card);
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2.25rem;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.5s ease,
+                box-shadow 0.5s ease,
+                filter 0.5s ease;
+    opacity: 0.35;
+    transform: scale(0.88);
+    filter: blur(1.5px);
+    pointer-events: auto;
+
+    @media (max-width: 768px) {
+      padding: 1.75rem 1.5rem;
+    }
+
+    &__quote-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-size: 2.5rem;
+      color: rgba($accent, 0.08);
+      pointer-events: none;
+      transition: color 0.5s ease;
+    }
+
+    &__rating {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.25rem;
+
+      .star-icon {
+        color: #fbbf24; // Amber rating stars
+        font-size: 1.1rem;
+      }
+    }
+
+    &__text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      font-style: italic;
+      margin-bottom: 2rem;
+      font-weight: 400;
+
+      @media (max-width: 768px) {
+        font-size: 0.925rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid rgba($accent, 0.08);
+      padding-top: 1.25rem;
+    }
+
+    &__avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border-color);
+      transition: border-color 0.5s ease;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.25rem 0;
+    }
+
+    &__role {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: $accent;
+      margin-bottom: 0.15rem;
+    }
+
+    &__location {
+      font-size: 0.775rem;
+      color: var(--muted-text, #777777);
+      font-weight: 400;
+    }
+
+    /* Active Centered State */
+    &.active {
+      opacity: 1;
+      transform: scale(1.06);
+      filter: blur(0px);
+      border-color: rgba($accent, 0.45);
+      box-shadow: 0 20px 40px rgba($accent, 0.08), 0 8px 16px rgba(0, 0, 0, 0.03);
+      cursor: default;
+
+      .testimonial-card__quote-icon {
+        color: rgba($accent, 0.18);
+      }
+
+      .testimonial-card__avatar {
+        border-color: $accent;
+      }
+    }
+
+    /* Adjacent Left/Right States (Visible on Desktop) */
+    &.left, &.right {
+      opacity: 0.65;
+      transform: scale(0.9);
+      filter: blur(0.5px);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.85;
+        border-color: rgba($accent, 0.2);
+        transform: scale(0.92);
+      }
+    }
+
+    /* Off-screen cards */
+    &.other {
+      opacity: 0.15;
+      transform: scale(0.8);
+      filter: blur(3px);
+      pointer-events: none;
+    }
+  }
+
+  /* Controls */
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+
+    @media (max-width: 500px) {
+      gap: 1rem;
+    }
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border-color);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+
+    &:hover {
+      background: $accent;
+      color: #ffffff;
+      border-color: $accent;
+      transform: scale(1.08);
+      box-shadow: 0 6px 12px rgba($accent, 0.2);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+      background: $accent;
+      width: 24px;
+      border-radius: 5px;
+    }
+
+    &:hover:not(.active) {
+      background: rgba($accent, 0.5);
+    }
+  }
+}

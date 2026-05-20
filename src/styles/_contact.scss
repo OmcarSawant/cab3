@@ -1,0 +1,94 @@
+@use "variables" as *;
+
+.contact {
+  padding: 80px 0;
+  text-align: center;
+  background: url('../assets/contact-bg.png') center/cover no-repeat;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  &__intro {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    opacity: 0.8;
+    width: 100%;
+    color: var(--text);
+    text-align: center;
+    display: block;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  &__item {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  &__item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  &__item p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    opacity: 0.8;
+    color: var(--text);
+  }
+
+  &__link {
+    display: block;
+    color: $accent;
+    text-decoration: none;
+    margin: 8px 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #e8630d;
+      text-decoration: underline;
+    }
+  }
+
+  &__address {
+    font-style: normal;
+    color: var(--text);
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+
+  &__hours {
+    color: var(--text);
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+  }
+}

@@ -1,0 +1,266 @@
+@use "variables" as *;
+
+.search-results {
+    padding: 100px 0 60px;
+    min-height: 80vh;
+    background: var(--bg);
+
+    &__summary {
+        margin-bottom: 40px;
+    }
+
+    &__back {
+        display: inline-block;
+        color: $accent;
+        text-decoration: none;
+        font-weight: 600;
+        margin-bottom: 16px;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 16px;
+    }
+
+    &__trip-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 1rem;
+        color: var(--text);
+        opacity: 0.8;
+    }
+
+    &__trip-badge {
+        background: rgba($accent, 0.12);
+        color: $accent;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    &__arrow {
+        color: $accent;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    // Vehicle grid
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__card {
+        display: flex;
+        background: var(--card);
+        border: 1px solid var(--border-color, #e5e7eb);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &__card-image {
+        width: 280px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        position: relative;
+        background: rgba($accent, 0.04);
+
+        img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            height: 180px;
+        }
+    }
+
+    &__seats-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: $accent;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    &__card-body {
+        flex: 1;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+    }
+
+    &__price {
+        color: $accent;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    &__examples {
+        font-size: 0.9rem;
+        color: var(--text);
+        opacity: 0.6;
+        margin: 0;
+    }
+
+    &__ideal {
+        font-size: 0.95rem;
+        color: var(--text);
+        opacity: 0.75;
+        margin: 0;
+    }
+
+    &__pricing-breakdown {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba($accent, 0.03);
+        border: 1px solid rgba($accent, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+    }
+
+    &__pricing-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: var(--text);
+
+        .icon {
+            font-size: 1.1rem;
+            color: $accent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        span {
+            opacity: 0.9;
+        }
+
+        &.exclusions {
+            border-top: 1px dashed var(--border-color, #e5e7eb);
+            padding-top: 10px;
+            margin-top: 2px;
+
+            strong {
+                color: #e53e3e;
+            }
+
+            span {
+                color: var(--text);
+                opacity: 0.75;
+                font-size: 0.85rem;
+            }
+
+            .icon {
+                color: #e53e3e;
+            }
+        }
+    }
+
+    &__features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 8px 0;
+    }
+
+    &__feature-tag {
+        font-size: 0.8rem;
+        color: $accent;
+        background: rgba($accent, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+
+    &__card-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 12px;
+    }
+
+    &__book-btn {
+        background: $accent;
+        color: white;
+        padding: 10px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #e8630d;
+            transform: translateY(-1px);
+        }
+    }
+
+    &__whatsapp-btn {
+        background: #25d366;
+        color: white;
+        padding: 10px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #20ba5a;
+            transform: translateY(-1px);
+        }
+    }
+}

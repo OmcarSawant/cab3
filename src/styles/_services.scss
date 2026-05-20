@@ -1,0 +1,200 @@
+@use "variables" as *;
+
+.services {
+  padding: 100px 0;
+  background: url('../assets/services-bg.png') center/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba($accent, 0.06) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba($accent, 0.04) 0%, transparent 70%);
+    bottom: -50px;
+    right: -50px;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: var(--text);
+      font-weight: 800;
+    }
+  }
+
+  &__intro {
+    font-size: 1.15rem;
+    opacity: 0.8;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .grid.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+
+  .service-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--border-color, #e5e7eb);
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba($accent, 0.3);
+    }
+
+    &__icon {
+      font-size: 3.5rem;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    &__title {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    &__description {
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      opacity: 0.75;
+      line-height: 1.6;
+      color: var(--text);
+      flex-grow: 1;
+    }
+
+    &__features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+
+      li {
+        padding: 8px 0;
+        font-size: 0.9rem;
+        color: var(--text);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba($accent, 0.9);
+      }
+    }
+
+    &__cta {
+      display: inline-block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba($accent, 0.05);
+      color: $accent;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid rgba($accent, 0.2);
+
+      &:hover {
+        background: $accent;
+        color: white;
+        box-shadow: 0 4px 12px rgba($accent, 0.2);
+      }
+    }
+  }
+
+  // Popular Routes Section
+  .popular-routes {
+    text-align: center;
+    background: rgba($accent, 0.03);
+    padding: 60px 40px;
+    border-radius: 24px;
+    border: 1px dashed rgba($accent, 0.2);
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    &__grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .route-pill {
+      background: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid #f0f0f0;
+
+      .route-name {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .route-price {
+        color: $accent;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding-left: 12px;
+        border-left: 1px solid #eee;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        border-color: $accent;
+      }
+    }
+  }
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba($accent, 0.1);
+  color: $accent;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
