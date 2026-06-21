@@ -1,6 +1,7 @@
 import sedan from "../assets/sedan.png";
 import suv from "../assets/suv.png";
 import traveller from "../assets/traveller.png";
+import innova from "../assets/innova.png";
 
 export default function Fleet() {
   const vehicles = [
@@ -14,13 +15,22 @@ export default function Fleet() {
       ideal: "Comfortable city & outstation"
     },
     {
-      name: "SUV",
+      name: "Ertiga SUV",
       image: suv,
-      seats: "6-7 Seats",
-      capacity: "6-7 passengers",
-      examples: "Ertiga, Innova",
-      price: "Premium rates",
-      ideal: "Family trips, long journeys"
+      seats: "6 Seats",
+      capacity: "6 passengers",
+      examples: "Ertiga",
+      price: "Starting ₹15/km",
+      ideal: "Family trips, budget travel"
+    },
+    {
+      name: "Toyota Innova",
+      image: innova,
+      seats: "7 Seats",
+      capacity: "7 passengers",
+      examples: "Innova Crysta",
+      price: "Starting ₹22/km",
+      ideal: "Family trips, premium comfort"
     },
     {
       name: "Traveller",

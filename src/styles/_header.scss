@@ -37,20 +37,9 @@ header {
         opacity: 0.85;
       }
 
-      &--desktop {
-        display: block;
-        @media (max-width: 768px) {
-          display: none;
-        }
-      }
-
-      &--mobile {
-        display: none;
-        @media (max-width: 768px) {
-          display: block;
-          height: 48px;
-          max-width: 150px;
-        }
+      @media (max-width: 768px) {
+        height: 48px;
+        max-width: 150px;
       }
     }
 

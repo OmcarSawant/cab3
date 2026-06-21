@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import sedan from '../assets/sedan-removebg-preview.png';
 import suv from '../assets/suv-removebg-preview.png';
 import traveller from '../assets/traveller-removebg-preview.png';
+import innova from '../assets/innova.png'
 
 const cars = [
   { image: sedan, name: "Sedan", tagline: "Comfort Travel" },
   { image: suv, name: "SUV", tagline: "Family Trips" },
   { image: traveller, name: "Traveller", tagline: "Group Tours" },
+  { image: innova, name: "Toyota Innova", tagline: "Family Trips" },
 ];
 
 export default function Hero() {
@@ -18,7 +20,7 @@ export default function Hero() {
       setCurrentCar((prev) => (prev + 1) % cars.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [cars.length]);
 
   return (
     <section className="hero">
@@ -26,6 +28,7 @@ export default function Hero() {
       <div className="hero__bg-shapes">
         <div className="hero__shape hero__shape--1"></div>
         <div className="hero__shape hero__shape--2"></div>
+        <div className="hero__shape hero__shape--3"></div>
         <div className="hero__shape hero__shape--3"></div>
       </div>
 

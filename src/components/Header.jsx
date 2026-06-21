@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "./../assets/logo.jpeg";
+import logo from "./../assets/logo.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,13 +61,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Shankh Cabs Pune"
-            className="nav__logo nav__logo--desktop"
-            onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
-          />
-          <img
-            src="/Logo Text.png"
-            alt="Shankh Cabs Pune"
-            className="nav__logo nav__logo--mobile"
+            className="nav__logo"
             onClick={() => { navigate("/"); window.scrollTo(0, 0); }}
           />
         </div>

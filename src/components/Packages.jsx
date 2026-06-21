@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch, FaCar, FaClock, FaRoute, FaCheck, FaTimes, FaWhatsapp, FaArrowRight } from "react-icons/fa";
-
+import sedan from '../assets/sedan.png'
 const packagesData = [
   {
     id: "pune-mumbai-airport",
@@ -46,7 +46,7 @@ const packagesData = [
     distance: "150 Km",
     duration: "3 Hours",
     description: "Affordable one-way or round-trip travel between Pune and Mumbai city. Direct doorstep pickup and drop-off with clean cabs.",
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=500&auto=format&fit=crop&q=80",
+    image: sedan,
     from: "Pune",
     to: "Mumbai",
     pricing: [
@@ -202,15 +202,15 @@ const packagesData = [
     exclusions: ["Vineyard entry and wine tasting fees", "Local temple parking", "Meals"]
   },
   {
-    id: "pune-aurangabad",
-    title: "Pune to Aurangabad Tour",
+    id: "pune-Sambhaji Nagar",
+    title: "Pune to Sambhaji Nagar Tour",
     category: "sightseeing",
     distance: "240 Km",
     duration: "5 Hours",
     description: "Visit historical monuments, including the Ajanta & Ellora caves (UNESCO sites) and Bibi Ka Maqbara.",
     image: "https://upload.wikimedia.org/wikipedia/commons/6/65/Bibi_Ka_Maqbara_-_The_Taj_Of_Deccan.jpg",
     from: "Pune",
-    to: "Aurangabad / Ellora",
+    to: "Sambhaji Nagar / Ellora",
     pricing: [
       { car: "Sedan (Dzire / Aura)", capacity: "4 Pax", price: "₹5,500", type: "Round Trip" },
       { car: "Ertiga SUV", capacity: "6 Pax", price: "₹7,000", type: "Round Trip" },
@@ -425,7 +425,10 @@ export default function Packages() {
                   <div className="package-card__category">{pkg.category.toUpperCase()}</div>
                 </div>
                 <div className="package-card__body">
-                  <h3 className="package-card__title">{pkg.title}</h3>
+                  <h3 className="package-card__title">
+                    <span className="package-card__to-from">to & from</span>
+                    {pkg.title}
+                  </h3>
                   <p className="package-card__description">{pkg.description}</p>
 
                   <div className="package-card__stats">
@@ -485,7 +488,10 @@ export default function Packages() {
                 <img src={activePackage.image} alt={activePackage.title} className="package-modal__img" />
                 <div className="package-modal__details">
                   <span className="modal-tag">{activePackage.category.toUpperCase()}</span>
-                  <h2>{activePackage.title}</h2>
+                  <h2>
+                    <span className="package-modal__to-from">to & from</span>
+                    {activePackage.title}
+                  </h2>
                   <p className="description">{activePackage.description}</p>
 
                   <div className="quick-stats">

@@ -29,7 +29,7 @@ export default function Coverage() {
         "Pune To Ashtavinayak Tour Cab", "Pune To Harihareshwar",
         "Pune To Malshej Ghat", "Pune To Parli Vaijnath",
         "Pune To Sadetin Shakti Peeth",
-        "Pune To Aurangabad", "Pune To Dapoli",
+        "Pune To Sambhaji Nagar", "Pune To Dapoli",
         "Pune To Grishneshwar", "Pune To Igatpuri",
         "Pune To Panchgani", "Pune To Raigad",
         "Pune To Ashtavinayak Cab Services",

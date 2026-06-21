@@ -68,6 +68,7 @@ export default function BookingWidget() {
                 placeholder="Enter pickup location"
                 value={fromLocation}
                 onChange={(e) => setFromLocation(e.target.value)}
+                list="widget-locations"
                 required
               />
             </div>
@@ -80,9 +81,17 @@ export default function BookingWidget() {
                 placeholder="Enter drop location"
                 value={toLocation}
                 onChange={(e) => setToLocation(e.target.value)}
+                list={tripType === "one-way" ? "widget-locations" : undefined}
                 required
               />
             </div>
+
+            <datalist id="widget-locations">
+              <option value="Pune" />
+              <option value="Pune Airport" />
+              <option value="Mumbai" />
+              <option value="Mumbai Airport" />
+            </datalist>
 
             <div className="booking-widget__field">
               <label htmlFor="pickup-date">Date</label>

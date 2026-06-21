@@ -6,6 +6,7 @@
   border-top: 1px solid var(--border-color);
   // border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
+  padding: 80px 0;
 
   &__header {
     text-align: center;
@@ -244,6 +245,16 @@
       color: var(--text);
     }
 
+    &__to-from {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: $accent;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.05em;
+    }
+
     &__description {
       font-size: 0.9rem;
       color: var(--muted-text, #555555);
@@ -472,6 +483,16 @@
         font-weight: 800;
         margin: 0 0 1rem 0;
         color: var(--text);
+      }
+
+      .package-modal__to-from {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $accent;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+        letter-spacing: 0.05em;
       }
 
       .description {
